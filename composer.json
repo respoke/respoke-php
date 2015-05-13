@@ -1,0 +1,10 @@
+{
+    "require": {
+        "webmozart/json": "^1.0",
+        "guzzlehttp/guzzle": "^5.2"
+    },
+	
+	"autoload": {
+		"classmap": ["src/"]
+    }
+}
