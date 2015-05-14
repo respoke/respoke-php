@@ -3,14 +3,15 @@
 namespace Respoke;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
+use GuzzleHttp\Exception\RequestException;
 
 class Client {
     private $appId;
     private $appSecret;
     private $roleId;
     private $endpointId;
-    private $http;
-    private $baseURL;
+    private $guzzle;
+    private $tokenId;
     
     public function __construct($args = []) {
         $this->appId = $args["appId"];
@@ -18,10 +19,8 @@ class Client {
         $this->roleId = $args["roleId"];
         $this->endpointId = $args["endpointId"];
         
-        $this->baseURL = "https://api.respoke.io/v1";
-        
-        $this->http = new GuzzleHttpClient([
-            'base_url' => $this->baseURL,
+        $this->guzzle = new GuzzleHttpClient([
+            'base_url' => ['https://api.respoke.io/{version}/', ['version' => 'v1']],
             'defaults' => [
                 'headers' => [
                     'Content-type' => 'application/json',
@@ -44,15 +43,25 @@ class Client {
     }
     
     public function getTokenId() {
-        $response = $this->http->post('/tokens', [
-            'body' => [
-                'appId' => $this->appId,
-                'endpointId' => $this->endpointId,
-                'roleId' => $this->roleId,
-                'ttl' => 3600
-            ]
-        ]);
+        try {
+            $response = $this->guzzle->post('tokens', [
+                'body' => json_encode([
+                    'appId' => $this->appId,
+                    'endpointId' => $this->endpointId,
+                    'roleId' => $this->roleId,
+                    'ttl' => 3600
+                ])
+            ]);
                 
-        var_dump($response);
+            $this->tokenId = $response->json()['tokenId'];
+        } catch (RequestException $e) {
+            $statusCode = $e->getResponse()->getStatusCode();
+            
+        } catch (Exception $e) {
+            
+        }
+        
+        
+        return $this->tokenId;
     }
 }

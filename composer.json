@@ -1,7 +1,7 @@
 {
     "require": {
-        "webmozart/json": "^1.0",
-        "guzzlehttp/guzzle": "^5.2"
+        "guzzlehttp/guzzle": "^5.2",
+        "monolog/monolog": "^1.13"
     },
 	
 	"autoload": {

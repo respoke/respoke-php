@@ -23,6 +23,10 @@ Then use the library.
         "roleId" => "ROLE_ID",
         "endpointId" => "USER_NAME"
     ]);
+    
+    $tokenId = $client->getTokenId();
+    
+Return this `$tokenId` to your front-end and pass it to the `token` property when connecting to Respoke.
 
 ## Running the tests
 
