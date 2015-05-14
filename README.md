@@ -20,6 +20,8 @@ Install the library's dependencies.
     composer install
     
 Then use the library. Sign up for a FREE [Respoke account](https://portal.respoke.io/#/signup).
+
+    use Respoke\Client;
    
     $client = new Respoke\Client([
         "appId" => "APP_ID",
