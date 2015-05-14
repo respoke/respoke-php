@@ -1,5 +1,13 @@
 {
+	"name": "respoke/respoke",
+	"type": "library",
+	"description": "PHP serverside library for the Respoke REST API",
+	"keywords": ["webrtc","respoke"],
+	"homepage": "http://github.com/respoke/respoke-php",
+	"license": "MIT",
+	"version": "1.0.0",
     "require": {
+		"php": ">=5.3.0",
         "guzzlehttp/guzzle": "^5.2",
 		"guzzlehttp/log-subscriber": "~1.0"
     },
