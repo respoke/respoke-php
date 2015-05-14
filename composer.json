@@ -2,7 +2,7 @@
 	"name": "respoke/respoke",
 	"type": "library",
 	"description": "PHP serverside library for the Respoke REST API",
-	"keywords": ["WebRTC", "Respoke", "Video", "Audio", "Chart", "Data", "Streaming"],
+	"keywords": ["WebRTC", "Respoke", "Video", "Audio", "Chat", "Data", "Streaming"],
 	"homepage": "http://github.com/respoke/respoke-php",
 	"license": "MIT",
 	"version": "1.0.0",
