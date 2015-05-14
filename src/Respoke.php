@@ -14,6 +14,7 @@ class Client {
     private $endpointId;
     private $guzzle;
     private $tokenId;
+    private $log;
     
     public function __construct($args = []) {
         $this->appId = $args["appId"];
@@ -59,8 +60,8 @@ class Client {
                 
             $this->tokenId = $response->json()['tokenId'];
         } catch (RequestException $e) {
-            $statusCode = $e->getResponse()->getStatusCode();   
-            
+            $reasonPhrase = $e->getResponse()->getReasonPhrase();
+            $statusCode = $e->getResponse()->getStatusCode();
         } catch (Exception $e) {
             
         }
