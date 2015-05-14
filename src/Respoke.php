@@ -4,6 +4,8 @@ namespace Respoke;
 
 use GuzzleHttp\Client as GuzzleHttpClient;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Subscriber\Log\LogSubscriber;
+use GuzzleHttp\Subscriber\Log\Formatter;
 
 class Client {
     private $appId;
@@ -28,10 +30,12 @@ class Client {
                 ]
             ]
         ]);
+                    
+        $this->guzzle->getEmitter()->attach(new LogSubscriber(null, Formatter::DEBUG));
     }
     
     public function __destruct() {
-
+        unset($this->guzzle);
     }
     
     public function __get($name) {
@@ -55,13 +59,12 @@ class Client {
                 
             $this->tokenId = $response->json()['tokenId'];
         } catch (RequestException $e) {
-            $statusCode = $e->getResponse()->getStatusCode();
+            $statusCode = $e->getResponse()->getStatusCode();   
             
         } catch (Exception $e) {
             
         }
-        
-        
+
         return $this->tokenId;
     }
 }
