@@ -33,6 +33,8 @@ Then use the library. Sign up for a FREE [Respoke account](https://portal.respok
     $tokenId = $client->getTokenId();
     
 Return this `$tokenId` to your front-end and pass it to the `token` property when connecting to Respoke.
+    
+    json_encode(["token" => $tokenId]);
 
 ## Running the tests
 
