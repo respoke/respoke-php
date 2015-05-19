@@ -40,10 +40,9 @@ Return this `$tokenId` to your front-end and pass it to the `token` property whe
 
 ## Running the tests
 
-The test suite uses PHPUnit for test coverage. Run with either the --testdox argument for more descriptive tests.
+The test suite uses PHPUnit for test coverage.
 
-    phpunit --bootstrap vendor/autoload.php tests/ClientTest
-    phpunit --testdox --bootstrap vendor/autoload.php tests/ClientTest
+    phpunit --configuration phpunit.xml.dist
 
 ## Contributing
 
