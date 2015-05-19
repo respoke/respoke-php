@@ -3,7 +3,7 @@
 The Respoke PHP Library is a wrapper for the Respoke REST API. For more information on the
 Respoke service and API see [docs.respoke.io](http://docs.respoke.io).
 
-Please validate you have PHP 5.3.* or greater installed.
+Please validate you have PHP 5.4.* or greater installed.
 
 ## Installation
 
