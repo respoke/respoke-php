@@ -1,8 +1,9 @@
 # Respoke PHP Library [![Build Status](https://travis-ci.org/respoke/respoke-php.svg?branch=master)](https://travis-ci.org/respoke/respoke-php)
 
 
-The Respoke PHP Library is a wrapper for the Respoke REST API. For more information on the
-Respoke service and API see [docs.respoke.io](http://docs.respoke.io).
+Respoke PHP is the officially supported PHP library for [Respoke](https://respoke.io). 
+
+With Respoke, you can add live voice, video, text and data features to your website or mobile app. Check out our [Guides](https://docs.respoke.io/server/php/getting-started.html) to get started using Respoke and Respoke PHP now.
 
 Please validate you have PHP 5.4.* or greater installed.
 

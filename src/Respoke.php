@@ -17,10 +17,10 @@ class Client {
     private $log;
     
     public function __construct($args = []) {
-        $this->appId = $args["appId"];
-        $this->appSecret = $args["appSecret"];
-        $this->roleId = $args["roleId"];
-        $this->endpointId = $args["endpointId"];
+        $this->appId = @$args["appId"];
+        $this->appSecret = @$args["appSecret"];
+        $this->roleId = @$args["roleId"];
+        $this->endpointId = @$args["endpointId"];
         
         $this->guzzle = new GuzzleHttpClient([
             'base_url' => ['https://api.respoke.io/{version}/', ['version' => 'v1']],
