@@ -1,4 +1,5 @@
-# Respoke PHP Library
+# Respoke PHP Library [![Build Status](https://travis-ci.org/respoke/respoke-php.svg?branch=master)](https://travis-ci.org/respoke/respoke-php)
+
 
 The Respoke PHP Library is a wrapper for the Respoke REST API. For more information on the
 Respoke service and API see [docs.respoke.io](http://docs.respoke.io).
