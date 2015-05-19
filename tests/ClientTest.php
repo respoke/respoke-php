@@ -1,7 +1,5 @@
 <?php
 
-require '../vendor/autoload.php';
-
 use Respoke\Client;
     
 class ClientTest extends PHPUnit_Framework_TestCase {

@@ -3,21 +3,23 @@
 The Respoke PHP Library is a wrapper for the Respoke REST API. For more information on the
 Respoke service and API see [docs.respoke.io](http://docs.respoke.io).
 
+Please validate you have PHP 5.3.* or greater installed.
+
 ## Installation
 
-Install Respoke's PHP Library to your project using [Composer](https://getcomposer.org/).
+Install [Respoke's PHP Library](https://packagist.org/packages/respoke/respoke) to your project using [Composer](https://getcomposer.org/).
 
     composer require respoke/respoke
-    
-After installing, you need to require Composer's autoloader:
-
-    require 'vendor/autoload.php';
     
 ## Running the library
 
 Install the library's dependencies.
 
     composer install
+    
+After installing, you need to require Composer's autoloader:
+
+    require 'vendor/autoload.php';
     
 Then use the library. Sign up for a FREE [Respoke account](https://portal.respoke.io/#/signup).
 
@@ -40,8 +42,8 @@ Return this `$tokenId` to your front-end and pass it to the `token` property whe
 
 The test suite uses PHPUnit for test coverage. Run with either the --testdox argument for more descriptive tests.
 
-    phpunit --testdox ClientTest
-    phpunit ClientTest
+    phpunit --bootstrap vendor/autoload.php tests/ClientTest
+    phpunit --testdox --bootstrap vendor/autoload.php tests/ClientTest
 
 ## Contributing
 
