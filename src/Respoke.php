@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Respoke;
 
@@ -21,9 +21,10 @@ class Client {
         $this->appSecret = @$args["appSecret"];
         $this->roleId = @$args["roleId"];
         $this->endpointId = @$args["endpointId"];
-        
+        $this->baseUrl = @$args['baseUrl'] ?: 'https://api.respoke.io/v1/';
+
         $this->guzzle = new GuzzleHttpClient([
-            'base_url' => ['https://api.respoke.io/{version}/', ['version' => 'v1']],
+            'base_url' => $this->baseUrl,
             'defaults' => [
                 'headers' => [
                     'Content-type' => 'application/json',
@@ -31,14 +32,14 @@ class Client {
                 ]
             ]
         ]);
-                    
+
         $this->guzzle->getEmitter()->attach(new LogSubscriber(null, Formatter::DEBUG));
     }
-    
+
     public function __destruct() {
         unset($this->guzzle);
     }
-    
+
     public function __get($name) {
         return $this->$name;
     }
@@ -46,7 +47,7 @@ class Client {
     public function __set($name, $value) {
         $this->$name = $value;
     }
-    
+
     public function getTokenId() {
         try {
             $response = $this->guzzle->post('tokens', [
@@ -57,13 +58,13 @@ class Client {
                     'ttl' => 3600
                 ])
             ]);
-                
+
             $this->tokenId = $response->json()['tokenId'];
         } catch (RequestException $e) {
             $reasonPhrase = $e->getResponse()->getReasonPhrase();
             $statusCode = $e->getResponse()->getStatusCode();
         } catch (Exception $e) {
-            
+
         }
 
         return $this->tokenId;

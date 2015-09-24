@@ -18,7 +18,7 @@ class ClientTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals("spock@enterprise.com", $client->endpointId);
     }
     
-    public function testCreateClientWithOutArgs() {
+    public function testCreateClientWithoutArgs() {
         $client = new Respoke\Client();
             
         $this->assertEquals(null, $client->appId);
