@@ -15,7 +15,14 @@ class Client {
     private $guzzle;
     private $tokenId;
     private $log;
-    
+
+    private function getSDKHeader() {
+        $phpVersion = phpversion();
+        $respokeVersion = json_decode(file_get_contents(realpath(__DIR__ .'/../composer.json')))->version;
+        $osVersion = sprintf('%s %s', php_uname('s'), php_uname('r'));
+        return sprintf('Respoke-PHP/%s (%s) PHP/%s', $respokeVersion, $osVersion, $phpVersion);
+    }
+
     public function __construct($args = []) {
         $this->appId = @$args["appId"];
         $this->appSecret = @$args["appSecret"];
@@ -28,7 +35,8 @@ class Client {
             'defaults' => [
                 'headers' => [
                     'Content-type' => 'application/json',
-                    'App-Secret' => $this->appSecret
+                    'App-Secret' => $this->appSecret,
+                    'Respoke-SDK' => $this->getSDKHeader()
                 ]
             ]
         ]);
