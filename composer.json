@@ -1,18 +1,27 @@
 {
-	"name": "respoke/respoke",
-	"type": "library",
-	"description": "PHP serverside library for the Respoke REST API",
-	"keywords": ["WebRTC", "Respoke", "Video", "Audio", "Chat", "Data", "Streaming"],
-	"homepage": "http://github.com/respoke/respoke-php",
-	"license": "MIT",
-	"version": "1.0.0",
-	"require": {
-		"php": ">=5.3.0",
-		"guzzlehttp/guzzle": "^5.2",
-		"guzzlehttp/log-subscriber": "~1.0"
-	},
-	
-	"autoload": {
-		"classmap": ["src/"]
+    "name": "respoke/respoke",
+    "type": "library",
+    "description": "PHP serverside library for the Respoke REST API",
+    "keywords": [
+        "WebRTC",
+        "Respoke",
+        "Video",
+        "Audio",
+        "Chat",
+        "Data",
+        "Streaming"
+    ],
+    "homepage": "http://github.com/respoke/respoke-php",
+    "license": "MIT",
+    "version": "1.1.0",
+    "require": {
+        "php": ">=5.3.0",
+        "guzzlehttp/guzzle": "^5.2",
+        "guzzlehttp/log-subscriber": "~1.0"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
     }
 }
