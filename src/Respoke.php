@@ -40,8 +40,6 @@ class Client {
                 ]
             ]
         ]);
-
-        $this->guzzle->getEmitter()->attach(new LogSubscriber(null, Formatter::DEBUG));
     }
 
     public function __destruct() {
